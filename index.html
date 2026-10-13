@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loan Application System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>LoanEase</h1>
+    <p>Loan Application System</p>
+  </header>
+
+  <main>
+    <!-- Module 1: Login and Registration -->
+    <section id="authSection" class="card">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <input id="loginEmail" type="email" placeholder="Email" required>
+        <input id="loginPassword" type="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+      </form>
+
+      <hr>
+      <h3>Create Account</h3>
+      <form id="registerForm">
+        <input id="regName" placeholder="Full name" required>
+        <input id="regEmail" type="email" placeholder="Email" required>
+        <input id="regPassword" type="password" placeholder="Password (minimum 6 characters)" minlength="6" required>
+        <button type="submit">Register</button>
+      </form>
+
+      <p class="hint">Demo customer: customer@example.com / demo123</p>
+      <p class="hint">Demo admin: admin@example.com / admin123</p>
+    </section>
+
+    <section id="appSection" class="hidden">
+      <div class="card">
+        <h2 id="welcome">Dashboard</h2>
+        <button id="dashboardBtn">Customer Dashboard</button>
+        <button id="applyBtn">Loan Application</button>
+        <button id="adminBtn" class="hidden">Admin Dashboard</button>
+        <button id="logoutBtn" class="secondary">Logout</button>
+      </div>
+
+      <!-- Module 2: Customer Dashboard -->
+      <section id="dashboard" class="card">
+        <h2>Customer Dashboard</h2>
+        <p>Total applications: <strong id="appCount">0</strong></p>
+        <div id="customerApplications"></div>
+      </section>
+
+      <!-- Module 3: Loan Application -->
+      <section id="loanSection" class="card hidden">
+        <h2>Apply for a Loan</h2>
+        <form id="loanForm">
+          <label>Full name</label>
+          <input id="loanName" required>
+
+          <label>Loan type</label>
+          <select id="loanType" required>
+            <option value="Personal Loan">Personal Loan</option>
+            <option value="Education Loan">Education Loan</option>
+            <option value="Home Loan">Home Loan</option>
+            <option value="Vehicle Loan">Vehicle Loan</option>
+            <option value="Business Loan">Business Loan</option>
+          </select>
+
+          <label>Loan amount (₹)</label>
+          <input id="loanAmount" type="number" min="1000" required>
+
+          <label>Monthly income (₹)</label>
+          <input id="monthlyIncome" type="number" min="0" required>
+
+          <label>Repayment period</label>
+          <select id="loanPeriod">
+            <option value="12">12 months</option>
+            <option value="24">24 months</option>
+            <option value="36">36 months</option>
+            <option value="60">60 months</option>
+          </select>
+
+          <button type="submit">Submit Application</button>
+        </form>
+      </section>
+
+      <!-- Module 4: Admin Dashboard -->
+      <section id="adminSection" class="card hidden">
+        <h2>Admin Dashboard</h2>
+        <div id="adminApplications"></div>
+      </section>
+    </section>
+
+    <p id="message" role="status"></p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
